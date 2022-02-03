@@ -1,0 +1,29 @@
+body {
+    background-color: $background_color;
+    color: $text_color;
+    font-family: $base_fonts, $emoji_fonts;
+    font-size: 11pt;
+    line-height: 1.5;
+}
+
+a {
+    color: $link;
+
+    &:visited {
+        color: $visited_link;
+    }
+
+    &:hover {
+        color: $hover_link;
+    }
+}
+
+h1 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+sup {
+    line-height: 0;
+    position: relative;
+}

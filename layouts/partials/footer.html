@@ -1,0 +1,9 @@
+<div id="footer">
+    <ul>
+        {{ range where .Site.RegularPages "Section" "==" "" }}
+            {{ .Render "inline"}}
+        {{ end }}
+    </ul>
+    <p>L'ultimo aggiornamento risale al {{ .Site.LastChange}}</p>
+    <p>{{ .Site.Copyright }}</p>
+</div>

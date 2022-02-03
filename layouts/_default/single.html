@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article class="post">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <aside id="meta">
+        <p>Pubblicato il {{ .Date.Format "02/01/2006" }}{{ if .Params.where}} a {{ .Params.where }}{{ end }}.
+        </p>
+    {{ if .Section }}
+        <div id="post-nav">
+            {{ with .PrevInSection }}
+            <div class="previous">
+                ‹
+                <a href="{{.Permalink}}">{{.Title}}</a>
+                <span class="date">{{ .Date.Format "02/01/2006" }}</span>
+            </div>
+            {{ end }}
+            {{ with .NextInSection }}
+            <div class="next">
+                <span class="date">{{ .Date.Format "02/01/2006" }}</span>
+                <a href="{{.Permalink}}">{{.Title}}</a>
+                ›
+            </div>
+            {{ end }}
+        </div>
+    {{ end }}
+</aside>
+</article>
+{{ end }}

@@ -1,0 +1,18 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: $dark_background_color;
+        color: $dark_text_color;
+    }
+
+    a {
+        color: $dark_link;
+        
+        &:visited {
+            color: $dark_visited_link;
+        }
+    
+        &:hover {
+            color: $dark_hover_link;
+        }
+    }
+}

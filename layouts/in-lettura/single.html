@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article>
+    <div class="book-info">
+        <a href="{{ .Params.link }}">
+            <img class="cover" src="./cover.jpg" alt="{{ .Title }}">
+            <h1>{{ .Title }}</h1>
+        </a>
+    </div>
+    {{ .Content }}
+</article>
+{{ end }}

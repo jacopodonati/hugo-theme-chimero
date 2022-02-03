@@ -1,0 +1,23 @@
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-weight: normal;
+
+        a {
+            text-decoration: underline;
+            text-decoration-thickness: 0.1rem;
+
+            &:visited {
+                color: $link;
+            }
+        }
+    }
+
+    #in-lettura a {
+        text-decoration: none;
+    }
+}

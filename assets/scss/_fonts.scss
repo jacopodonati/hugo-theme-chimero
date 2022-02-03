@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Courier Prime Sans";
+    src: url("/fonts/cps-reg.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "Courier Prime Sans";
+    src: url("/fonts/cps-b.woff2") format('woff2');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Courier Prime Sans";
+    src: url("/fonts/cps-bi.woff2") format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Courier Prime Sans";
+    src: url("/fonts/cps-i.woff2") format('woff2');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "EB Garamond";
+    src: url("/fonts/ebg-rnd.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "EB Garamond";
+    src: url("/fonts/ebg-ita.woff2") format('woff2');
+    font-style: italic;
+}
