@@ -6,11 +6,16 @@ body {
     line-height: 1.5;
 }
 
+body > header, body > #content > section, body > footer {
+    margin: 3vw auto;
+    max-width: $max_width;
+}
+
 a {
     color: $link;
 
     &:visited {
-        color: $visited_link;
+        color: $link;
     }
 
     &:hover {

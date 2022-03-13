@@ -1,25 +1,8 @@
-#footer {
+footer {
+    color: adjust-color($color: $text_color, $lightness: 70%);
     font-size: .8rem;
     text-align: center;
-    color: $site_footer;
-    
-    a {
-        color: $site_footer;
-
-        &:hover {
-            color: $site_footer_hover_link;
-        }
-    }
-
-    ul {
-        margin: 0;
-        padding: 0;
-
-        li {
-            display: inline;
-            margin: 0 .6rem;
-        }
-    }
+    margin-top: 4rem;
 
     p {
         margin: 0;

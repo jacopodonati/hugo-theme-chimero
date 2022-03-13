@@ -1,23 +1,28 @@
-#header {
+header {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 8rem;
 
     h1 {
+        font-size: 1rem;
         font-weight: normal;
+        margin-bottom: 0;
 
         a {
-            text-decoration: underline;
-            text-decoration-thickness: 0.1rem;
-
-            &:visited {
-                color: $link;
-            }
+            text-decoration: none;
         }
     }
 
-    #in-lettura a {
-        text-decoration: none;
+    #byline {
+        color: adjust-color($color: $text_color, $lightness: 50%);
+    }
+
+    #photo {
+        img {
+            border-radius: 100%;
+            width: 72px;
+        }
     }
 }

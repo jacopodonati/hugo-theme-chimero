@@ -37,7 +37,7 @@ article {
         aside {
             margin: 2rem 0;
             font-size: .8rem;
-            color: $slightly_dimmed_text;
+            color: adjust-color($color: $text_color, $lightness: 60%);
 
             #post-nav {
                 margin-top: 1rem;

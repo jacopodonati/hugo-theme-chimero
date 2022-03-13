@@ -1,8 +1,4 @@
 {{ define "main" }}
-      <ul id="posts">
-        {{ range where .Site.RegularPages "Section" "blog" }}
-            {{ .Render "li"}}
-        {{ end }}
-      </ul>
-    </main>
+{{ partial "home/info" . }}
+{{ partial "home/contatti" . }}
 {{ end }}

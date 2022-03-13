@@ -1,13 +1,11 @@
-<div id="header">
-    <h1>
-        {{ if .IsHome }}{{ .Site.Title }}{{ else }}
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-        {{ if .Section }} › {{ .Section }}{{- end -}}
-        {{ end }}
-    </h1>
-    <div id="in-lettura">
-        {{ range first 1 (where .Site.RegularPages "Section" "in-lettura") }}
-            <a href="{{ .RelPermalink }}">📖</a>
-        {{ end }}
+<header>
+    <div class="left">
+        <h1>
+            <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        </h1>
+        <div id="byline">Autore</div>
     </div>
-</div>
+    <div id="photo">
+        <img src="/img/crapa.jpg" alt="Jacopo Donati">
+    </div>
+</header>
