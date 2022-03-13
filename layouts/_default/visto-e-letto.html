@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $data := sort .Site.Data.media "year" "desc" }}
+{{ range sort .Site.Data.media "year" "desc" }}
+   {{ partial "scontrino" . }}
+{{ end }}
+{{ end }}
+
+{{ define "head_script" }}
+   <script src="/js/isotope.pkgd.min.js"></script>
+{{ end }}
+
+{{ define "script" }}
+<script>
+   window.addEventListener('load', function () {
+      var elem = document.querySelector('#content');
+      var iso = new Isotope(elem, {
+         itemSelector: '.scontrino',
+         masonry: {
+            columnWidth: 258,
+            gutter: 16,
+            fitWidth: true
+         }
+      });
+   }, false);
+</script>
+{{ end }}
