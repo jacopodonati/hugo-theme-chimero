@@ -6,7 +6,7 @@
     </head>
     <body>
         {{- partial "header.html" . -}}
-        <div id="content" class="{{ .Params.layout }}">
+        <div id="content" class="{{ .Section }} {{ .Kind }}">
             {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}

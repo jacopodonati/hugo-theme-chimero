@@ -2,6 +2,11 @@
 <article class="post">
     <h1>{{ .Title }}</h1>
     {{ .Content }}
+    {{ if .Params.who }}
+    <div class="who">
+        — {{ .Params.who }}
+    </div>
+    {{ end }}
     <aside id="meta">
         <p>Pubblicato il {{ .Date.Format "02/01/2006" }}{{ if .Params.where}} a {{ .Params.where }}{{ end }}.
         </p>

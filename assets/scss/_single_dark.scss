@@ -1,6 +1,7 @@
 @media (prefers-color-scheme: dark) {
-    .book-info cover {
-        // box-shadow: -1px 1px 40px -10px rgba(0,0,0,0.75);
-        box-shadow: hsla(44, 87%, 56%, 0.4) 0px 5px, hsla(44, 87%, 56%, 0.3) 0px 10px, hsla(44, 87%, 56%, 0.2) 0px 15px, hsla(44, 87%, 56%, 0.1) 0px 20px, hsla(44, 87%, 56%, 0.05) 0px 25px;
+    .manuale-per-vivere.page {
+        article {
+            background-color: $dark_content_color;
+        }
     }
 }
