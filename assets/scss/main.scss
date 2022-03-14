@@ -1,6 +1,8 @@
-$base_fonts: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$sans_fonts: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$serif_fonts: "Crimson Pro", -apple-system-ui-serif, ui-serif, serif;
 $emoji_fonts: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $mono_fonts: "Courier Prime Sans", monospace;
+$base_fonts: $sans_fonts, $emoji_fonts;
 
 $max_width: 38rem;
 
@@ -12,8 +14,8 @@ $link: #000;
 $hover_link: #393939;
 
 // Dark theme colors
-$dark_background_color: #000;
-$dark_content_color: rgb(46, 46, 46);
+$dark_background_color: hsl(15, 6%, 13%);
+$dark_content_color: hsl(0, 0%, 18%);
 $dark_text_color: #fff;
 $dark_link: #fff;
 $dark_hover_link: #d8d8d8;

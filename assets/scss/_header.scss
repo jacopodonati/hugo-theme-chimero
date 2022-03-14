@@ -2,12 +2,13 @@ header {
     align-items: center;
     display: flex;
     flex-direction: row;
+    font-weight: 500;
     justify-content: space-between;
     margin-bottom: 8rem;
 
     h1 {
         font-size: 1rem;
-        font-weight: normal;
+        font-weight: 500;
         margin-bottom: 0;
 
         a {

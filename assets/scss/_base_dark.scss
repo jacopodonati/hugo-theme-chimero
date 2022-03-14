@@ -15,4 +15,16 @@
             color: $dark_hover_link;
         }
     }
+
+    .split {    
+        .year {
+            color: adjust-color($color: $dark_text_color, $lightness: -40%);
+        }
+    
+        .project {
+            .description {
+                color: adjust-color($color: $dark_text_color, $lightness: -30%);
+            }
+        }
+    }
 }

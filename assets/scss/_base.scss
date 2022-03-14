@@ -7,8 +7,21 @@ body {
 }
 
 body > header, body > #content > section, body > footer {
-    margin: 3vw auto;
     max-width: $max_width;
+    margin: 0 auto;
+}
+
+body > header {
+    margin-bottom: 8rem;
+    margin-top: 4rem;
+}
+
+body > footer {
+    margin-top: 8rem;
+}
+
+body > #content > section {
+    margin: 4rem auto;
 }
 
 a {
@@ -31,4 +44,39 @@ h1 {
 sup {
     line-height: 0;
     position: relative;
+}
+
+p {
+    hyphens: auto;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: clamp(8em, 20vw, 9em) 1fr;
+    align-items: baseline;
+    margin-bottom: .8em;
+
+    .label {
+        color: adjust-color($color: $text_color, $lightness: 40%);
+        font-weight: 500;
+    }
+
+    .year {
+        color: adjust-color($color: $text_color, $lightness: 40%);
+        font-size: .8rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    .project {
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1rem 0 .4rem 0;
+        }
+
+        .description {
+            color: adjust-color($color: $text_color, $lightness: 20%);
+        }
+    }
 }
