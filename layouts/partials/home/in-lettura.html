@@ -1,0 +1,10 @@
+<section id="in-lettura">
+    <h2>In lettura</h2>
+    <div id="book-shelf">
+    {{ range where .Pages "Section" "in-lettura"  }}
+        {{ range .Pages}}
+            {{ .Render "in-lettura" }}
+        {{ end }}
+    {{ end }}
+    </div>
+</section>

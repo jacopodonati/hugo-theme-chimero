@@ -1,0 +1,2 @@
+{{ $cover := .Resources.GetMatch "*.jpg" }}
+<img src="{{ $cover.Permalink }}" alt="{{ .Title }} di {{ .Author }}" class="book-cover">
