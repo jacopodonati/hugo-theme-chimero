@@ -6,6 +6,12 @@
         <div id="byline">Autore e insegnante</div>
     </div>
     <div id="photo">
-        <img src="/img/crapa.jpg" srcset="/img/crapa@1x.jpg 1x, /img/crapa@2x.jpg 2x,/img/crapa@3x.jpg 3x" alt="Jacopo Donati">
+{{- $profile_pic := resources.Get "img/crapa.jpg" -}}
+{{- $base_width := 72 -}}
+{{- $x1 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 2))) -}}
+{{- $x2 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
+{{- $x3 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 4))) -}}
+{{- $x4 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 5))) }}
+        <img src="{{ $profile_pic }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="Jacopo Donati">
     </div>
 </header>
