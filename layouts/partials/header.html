@@ -12,6 +12,6 @@
 {{- $x2 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
 {{- $x3 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 4))) -}}
 {{- $x4 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 5))) }}
-        <img src="{{ $profile_pic }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="Jacopo Donati">
+        <img src="{{ $profile_pic }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="Jacopo Donati" width="{{ $base_width }}" height="{{ $base_width }}">
     </div>
 </header>
