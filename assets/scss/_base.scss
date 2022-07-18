@@ -50,6 +50,8 @@ p {
     hyphens: auto;
 }
 
+/* VECCHI STILI PER I PROGETTI A FONDO PAGINA
+
 .split {
     display: grid;
     grid-template-columns: clamp(8em, 20vw, 9em) 1fr;
@@ -77,6 +79,20 @@ p {
 
         .description {
             color: adjust-color($color: $text_color, $lightness: 20%);
+        }
+    }
+}
+
+VECCHI STILI PER I PROGETTI A FONDO PAGINA */
+
+#altro {
+    text-align: center;
+    font-size: .8rem;
+
+    ul {
+        li {
+            display: inline;
+            margin: 0 1rem;
         }
     }
 }

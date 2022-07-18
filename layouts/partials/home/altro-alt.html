@@ -1,0 +1,7 @@
+<section id="altro">
+    <ul>
+    {{ range where .Pages "Type" "other" -}}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+    </ul>
+</section>
