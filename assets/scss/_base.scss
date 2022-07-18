@@ -50,19 +50,19 @@ p {
     hyphens: auto;
 }
 
-/* VECCHI STILI PER I PROGETTI A FONDO PAGINA
 
 .split {
     display: grid;
     grid-template-columns: clamp(8em, 20vw, 9em) 1fr;
     align-items: baseline;
     margin-bottom: .8em;
-
+    
     .label {
         color: adjust-color($color: $text_color, $lightness: 40%);
         font-weight: 500;
     }
-
+    
+    /* VECCHI STILI PER I PROGETTI A FONDO PAGINA
     .year {
         color: adjust-color($color: $text_color, $lightness: 40%);
         font-size: .8rem;
@@ -81,9 +81,9 @@ p {
             color: adjust-color($color: $text_color, $lightness: 20%);
         }
     }
+    VECCHI STILI PER I PROGETTI A FONDO PAGINA */
 }
 
-VECCHI STILI PER I PROGETTI A FONDO PAGINA */
 
 #altro {
     text-align: center;
