@@ -6,9 +6,9 @@
     </head>
     <body>
         {{- partial "header.html" . -}}
-        <div id="content" class="{{ .Section }} {{ .Kind }}">
+        <main id="content" class="{{ .Section }} {{ .Kind }}">
             {{- block "main" . }}{{- end }}
-        </div>
+        </main>
         {{- partial "footer.html" . -}}
         {{- block "script" . }}{{- end }}
     </body>
