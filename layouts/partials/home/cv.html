@@ -12,8 +12,10 @@
             </div>
             <div class="data">
                 <span class="dal">{{ .data.dal }}</span>
+                {{ with .data.al }}
                 <span class="freccia">&rarr;</span>
-                <span class="al">{{ .data.al }}</span>
+                <span class="al">{{ . }}</span>
+                {{ end }}
             </div>
         </header>
         <p>{{ .descrizione }}</p>
