@@ -50,6 +50,14 @@ p {
     hyphens: auto;
 }
 
+#fnf {
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        border-radius: .4rem;
+    }
+}
 
 .split {
     display: grid;

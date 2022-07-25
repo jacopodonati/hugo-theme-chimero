@@ -3,7 +3,7 @@
    <div id="tag-selector">
       {{- $data := sort .Site.Data.media "year" "desc" -}}
       {{ $years := (slice) }}
-      {{- range where (sort .Site.Data.media "year" "desc") "draft" "true" -}}
+      {{- range sort .Site.Data.media "year" "desc" -}}
       {{ $years = $years | append .year }}
       {{- end }}
       {{ $years := uniq $years | sort }}
