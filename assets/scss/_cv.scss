@@ -45,19 +45,41 @@
 @media screen and (max-width: 736px) {
     #cv {
         .esperienza {
-            padding-left: 3rem;
+            padding-left: 0;
 
-            header {
+            .header {
                 h3 {
                     margin-bottom: 0;
                 }
 
                 .data {
+                    position: relative;
+                    text-align: left;
                     left: 0;
-                }
+                    font-size: .8rem;
 
+                    span {
+                        display: inline;
+                    }
+
+                    .freccia {
+                        transform: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #cv {
+        .esperienza {
+            padding-left: 0;
+
+            .header {
                 .datore {
                     position: relative;
+                    margin-bottom: .4rem;
                 }
             }
         }
