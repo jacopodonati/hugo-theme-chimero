@@ -6,12 +6,12 @@ body {
     line-height: 1.5;
 }
 
-body > header, body > #content > section, body > footer {
+body > #home-header, body > #content > section, body > footer {
     max-width: $max_width;
     margin: 0 auto;
 }
 
-body > header {
+body > #home-header {
     margin-bottom: 8rem;
     margin-top: 4rem;
 }
@@ -54,6 +54,7 @@ p {
     text-align: center;
 
     img {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
         max-width: 100%;
         border-radius: .4rem;
     }
