@@ -30,9 +30,16 @@
         </div>
     </header>
 </div>
+<aside id="altro">
+    {{ range .Pages }}
+    <ul>
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    </ul>
+    {{ end }}
+</aside>
 {{ end }}
 
 {{ define "script" }}
 <script src="./i-ching.js" type="module"></script>
-<script src="./selettore.js" type="module"></script>
+<script src="/js/i-ching/selettore.js" type="module"></script>
 {{ end }}

@@ -7,8 +7,8 @@
         — {{ .Params.who }}
     </div>
     {{ end }}
-    <aside id="meta">
-        <p>Pubblicato il {{ .Date.Format "02/01/2006" }}{{ if .Params.where}} a {{ .Params.where }}{{ end }}.
+    <footer id="meta">
+        <p>Aggiornato il {{ .Date.Format "02/01/2006" }}{{ if .Params.where}} a {{ .Params.where }}{{ end }}.
         </p>
     {{ if .Section }}
         <div id="post-nav">
@@ -28,6 +28,6 @@
             {{ end }}
         </div>
     {{ end }}
-</aside>
+    </footer>
 </article>
 {{ end }}
