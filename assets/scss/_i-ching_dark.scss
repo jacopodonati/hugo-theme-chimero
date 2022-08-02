@@ -1,5 +1,9 @@
 @media (prefers-color-scheme: dark) {
     .i-ching {
+        #hex-text, article {
+            background-color: $dark_content_color;
+        }
+
         .linea {
             fill: $dark_text_color;
         }
