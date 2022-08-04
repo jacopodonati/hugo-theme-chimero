@@ -1,0 +1,92 @@
+{{ define "head_script" }}
+    <script src="./daily.js" type="module"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/luxon.min.js"></script>
+    <script src="/js/chartjs-adapter-luxon.js"></script>
+{{ end }}
+
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <section class="chart">
+        <canvas id="daily-throws" width="400" height="400"></canvas>
+    </section>
+</article>
+{{ end }}
+
+{{ define "script" }}
+<script type="module">
+    import { daily_throws } from './daily.js';
+    var DateTime = luxon.DateTime;
+
+    function compileThrows(throws) {
+        let data = {
+            'primaries': [],
+            'relatives' : []
+        }
+
+        throws.forEach(day => {
+            const dateObj = new Date(day.date);
+            //const timestamp = dateObj.getTime();
+            const timestamp = day.date;
+            day.throws.forEach(single_throw => {
+                data.primaries.push({
+                    x: timestamp,
+                    y: single_throw[0]
+                });
+                if (single_throw.length > 1) {
+                    data.relatives.push({
+                        x: timestamp,
+                        y: single_throw[1]
+                    });
+                }
+            });
+        });
+        return data;
+    }
+
+    let daily_data = compileThrows(daily_throws);
+
+    const dtc = document.getElementById('daily-throws').getContext('2d');
+    const dailyThrows = new Chart(dtc, {
+    type: 'scatter',
+    data: {
+        datasets: [
+            {
+                label: 'Primari',
+                data: daily_data.primaries,
+                backgroundColor: 'rgb(101, 156, 219)'
+            },
+            {
+                label: 'Relativi',
+                data: daily_data.relatives,
+                backgroundColor: 'rgb(227, 185, 86)'
+            },
+
+        ]
+    },
+    options: {
+        locale: 'it',
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'day',
+                    displayFormats: {
+                        day: 'd MMMM'
+                    }
+                }
+            },
+            y: {
+                min: 1,
+                max: 64,
+                ticks: {
+                    stepSize: 8
+                }
+            }
+        }
+    }
+});
+</script>
+{{ end }}
