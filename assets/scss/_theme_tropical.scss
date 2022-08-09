@@ -1,0 +1,16 @@
+// Light theme colors
+$background_color: #fff8e4;
+$content_color: #ffffff;
+$text_color: #43413b;
+$label_color: adjust-color($color: $text_color, $lightness: 20%, $saturation: 60%);
+$link: #6a5620;
+$link_hover: #1489dd;
+$link_active: #77c6ff;
+
+// Dark theme colors
+$dark_background_color: #2c521e;
+$dark_content_color: #234019;
+$dark_text_color: #fff;
+$dark_link: #fff;
+$dark_link_hover: #d8f61f;
+$dark_link_active: #edf5bb;
