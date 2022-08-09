@@ -12,7 +12,11 @@
         }
     
         &:hover {
-            color: $dark_hover_link;
+            color: $dark_link_hover;
+        }
+    
+        &:active {
+            color: $dark_link_active;
         }
     }
 

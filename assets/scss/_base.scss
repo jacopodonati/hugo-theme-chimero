@@ -32,7 +32,11 @@ a {
     }
 
     &:hover {
-        color: $hover_link;
+        color: $link_hover;
+    }
+
+    &:active {
+        color: $link_active;
     }
 }
 
@@ -67,7 +71,7 @@ p {
     margin-bottom: .8em;
     
     .label {
-        color: adjust-color($color: $text_color, $lightness: 40%);
+        color: $label_color;
         font-weight: 500;
     }
     
