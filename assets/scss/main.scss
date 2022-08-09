@@ -6,19 +6,7 @@ $base_fonts: $sans_fonts, $emoji_fonts;
 
 $max_width: 38rem;
 
-// Light theme colors
-$background_color: hsl(20, 18%, 97%);
-$content_color: hsl(0, 0%, 100%);
-$text_color: #000;
-$link: #000;
-$hover_link: #393939;
-
-// Dark theme colors
-$dark_background_color: hsl(15, 6%, 13%);
-$dark_content_color: hsl(0, 0%, 18%);
-$dark_text_color: #fff;
-$dark_link: #fff;
-$dark_hover_link: #d8d8d8;
+@import "theme_tropical";
 
 @import "fonts";
 
