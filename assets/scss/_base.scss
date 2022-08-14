@@ -6,36 +6,40 @@ body {
     line-height: 1.5;
 }
 
-body > #home-header, body > #content > section, body > footer {
+#home-header, #content > section, #home-footer {
     max-width: $max_width;
     margin: 0 auto;
 }
 
-body > #home-header {
+#home-header {
     margin-bottom: 8rem;
     margin-top: 4rem;
 }
 
-body > footer {
+#home-footer {
     margin-top: 8rem;
 }
 
-body > #content > section {
+#content > section {
     margin: 4rem auto;
 }
 
 a {
     color: $link;
+    transition: .4s;
 
     &:visited {
+        transition: .4s;
         color: $link;
     }
 
     &:hover {
+        transition: .4s;
         color: $link_hover;
     }
 
     &:active {
+        transition: .4s;
         color: $link_active;
     }
 }
@@ -96,7 +100,6 @@ p {
     }
     VECCHI STILI PER I PROGETTI A FONDO PAGINA */
 }
-
 
 #altro {
     text-align: center;

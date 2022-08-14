@@ -19,16 +19,10 @@
             color: $dark_link_active;
         }
     }
-
-    .split {    
-        .year {
-            color: adjust-color($color: $dark_text_color, $lightness: -40%);
-        }
     
-        .project {
-            .description {
-                color: adjust-color($color: $dark_text_color, $lightness: -30%);
-            }
+    .split {
+        .label {
+            color: $dark_label_color;
         }
     }
 }

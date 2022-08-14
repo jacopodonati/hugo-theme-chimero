@@ -2,7 +2,8 @@
 $background_color: #fff8e4;
 $content_color: #ffffff;
 $text_color: #43413b;
-$label_color: adjust-color($color: $text_color, $lightness: 20%, $saturation: 60%);
+$label_color: adjust-color($color: $text_color, $lightness: 20%, $saturation: 38%);
+$footer_color: adjust-color($color: $text_color, $lightness: 50%, $saturation: 20%);
 $link: #6a5620;
 $link_hover: #1489dd;
 $link_active: #77c6ff;
@@ -11,6 +12,46 @@ $link_active: #77c6ff;
 $dark_background_color: #2c521e;
 $dark_content_color: #234019;
 $dark_text_color: #fff;
+$dark_label_color: adjust-color($color: $dark_text_color, $lightness: 20%, $saturation: 38%);
+$dark_footer_color: adjust-color($color: $dark_text_color, $lightness: 20%, $saturation: 38%);
 $dark_link: #fff;
 $dark_link_hover: #d8f61f;
 $dark_link_active: #edf5bb;
+
+button {
+    align-items: center;
+    appearance: none;
+    background-color: $content_color;
+    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #44413e;
+    display: inline-flex;
+    height: 2rem;
+    margin: 0 .4rem;
+    overflow: hidden;
+    padding: 0 1rem;
+    position: relative;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    
+    &:hover {
+        
+    }
+    
+    &:active {
+        
+    }
+
+    &.active-filter {
+        
+    }
+    
+    &#tag-tutti {
+        
+    }
+}
