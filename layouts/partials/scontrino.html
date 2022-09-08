@@ -23,9 +23,11 @@
 {{ $counter := newScratch }}
 {{ $type := .type }}
 {{ $counter.Set "length" 0 }}
+{{ $counter.Set "objects" 0 }}
 {{ range .sources }}
 {{ if eq $type "books" }}
 {{ $counter.Add "length" .length }}
+{{ $counter.Add "objects" 1 }}
         <table class="source books">
             <tr>
                 <td class="author">{{ .author }}</td>
@@ -44,6 +46,7 @@
             </tr>
 {{ range .seasons }}
 {{ $counter.Add "length" .length }}
+{{ $counter.Add "objects" 1 }}
             <tr>
                 <td class="season">{{ .title }}</td>
                 <td class="length">{{ .length }}</td>
@@ -52,6 +55,7 @@
         </table>
 {{ else if eq $type "films" }}
 {{ $counter.Add "length" .length }}
+{{ $counter.Add "objects" 1 }}
         <table class="source films">
             <tr>
                 <td class="title">{{ .title }} ({{ .year }})</td>
@@ -64,7 +68,7 @@
             <div class="separator">------------------------------</div>
             <div class="total">
                 <div class="titles">
-                    <span class="total_label">TOT. </span>{{ len .sources }} {{ .type_label }}
+                    <span class="total_label">TOT. </span>{{ $counter.Get "objects" }} {{ .type_label }}
                 </div>
                 <div class="length">
                     {{ $counter.Get "length" }} {{ .length_label }}
