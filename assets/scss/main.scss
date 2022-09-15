@@ -5,6 +5,7 @@ $mono_fonts: "Courier Prime Sans", monospace;
 $base_fonts: $sans_fonts, $emoji_fonts;
 
 $max_width: 38rem;
+$font_size: 11pt;
 
 @import "theme_chimero";
 // @import "theme_nyc";
