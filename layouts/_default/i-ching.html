@@ -3,16 +3,16 @@
     <div class="hex-design">
     {{ range $linea, $num := (seq 6) }}
     <div class="linea" id="linea-{{ sub 6 $linea }}">
-        {{ readFile "themes/apo/static/img/i-ching/linea.svg" | safeHTML }}
+        {{ readFile "themes/chimero/static/img/i-ching/linea.svg" | safeHTML }}
     </div>
     {{ $linea := (add $linea 1) }}
     {{ end }}
     </div>
     <div class="selector">
-        <button id="linea-6">{{ readFile "themes/apo/static/img/i-ching/6.svg" | safeHTML }}</button>
-        <button id="linea-7">{{ readFile "themes/apo/static/img/i-ching/7.svg" | safeHTML }}</button>
-        <button id="linea-8">{{ readFile "themes/apo/static/img/i-ching/8.svg" | safeHTML }}</button>
-        <button id="linea-9">{{ readFile "themes/apo/static/img/i-ching/9.svg" | safeHTML }}</button>
+        <button id="linea-6">{{ readFile "themes/chimero/static/img/i-ching/6.svg" | safeHTML }}</button>
+        <button id="linea-7">{{ readFile "themes/chimero/static/img/i-ching/7.svg" | safeHTML }}</button>
+        <button id="linea-8">{{ readFile "themes/chimero/static/img/i-ching/8.svg" | safeHTML }}</button>
+        <button id="linea-9">{{ readFile "themes/chimero/static/img/i-ching/9.svg" | safeHTML }}</button>
         <button id="linea-cancella">cancella</button>
     </div>
 </div>
