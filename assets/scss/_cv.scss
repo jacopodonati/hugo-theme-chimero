@@ -1,9 +1,9 @@
-#cv {
+#content.cv {
     .esperienza {
         position: relative;
         max-width: 32rem;
         padding-left: 6rem;
-        margin-bottom: 2rem;
+        margin: 0 auto 2rem auto;
 
         .header {
             h3 {
@@ -30,6 +30,10 @@
                     display: block;
                 }
 
+                .linea {
+                    display: none;
+                }
+                
                 .freccia {
                     transform: rotate(90deg);
                 }
@@ -80,6 +84,39 @@
                 .datore {
                     position: relative;
                     margin-bottom: .4rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    #content.cv {
+        .esperienza {
+            padding-left: 0;
+
+            .header {
+                .datore {
+                    position: relative;
+                }
+
+                .data {
+                    font-size: .8rem;
+                    position: relative;
+                    text-align: left;
+                    left: 0;
+                    top: 0;
+                    margin-top: .4rem;
+
+                    .dal, .al, .linea {
+                        display: inline;
+                    }
+
+                    .freccia {
+                        display: none;
+                    }
                 }
             }
         }
