@@ -6,7 +6,7 @@
             <div id="location">📍 <span id="current_location"></span><span id="freccia" class="nascosto">→</span><span id="next_location"></span></div>
         </div>
         <div id="photo">
-    {{- $profile_pic := resources.Get "img/crapa.jpg" -}}
+    {{- $profile_pic := resources.Get "img/chiaro-scuro.jpg" -}}
     {{- $base_width := 72 -}}
     {{- $x1 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 2))) -}}
     {{- $x2 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
