@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ range .Site.Data.cv.esperienze }}
+    <div class="esperienza">
+        <header class="header">
+            <h3>{{ .ruolo }}</h3>
+            <div class="datore">
+            {{- if .datore.url }}
+                <a href="{{ .datore.url }}">{{ .datore.nome }}</a>
+            {{- else -}}
+                {{ .datore.nome }}
+            {{ end }}
+            </div>
+            <div class="data">
+                <span class="dal">{{ .data.dal }}</span>
+                {{ with .data.al }}
+                <span class="freccia">&rarr;</span>
+                <span class="al">{{ . }}</span>
+                {{ end }}
+            </div>
+        </header>
+        <p>{{ .descrizione }}</p>
+    </div>
+    {{ end }}
+{{ end }}
