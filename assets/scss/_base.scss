@@ -110,14 +110,26 @@ p {
         display: inline;
 
         li {
-            display: inline;
-            margin: 0 1rem;
+            display: inline-block;
+            margin: .4rem 1rem;
         }
     }
 }
 
 @media only screen and (max-width: 800px) {
-    body {
-        font-size: 14pt;
+    html {
+        padding: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    p {
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+
+    footer p {
+        text-align: center;
     }
 }
