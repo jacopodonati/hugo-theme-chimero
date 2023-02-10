@@ -1,21 +1,5 @@
 @media (prefers-color-scheme: dark) {    
     .manuale {        
-        #tag-selector {
-            .tag-button {
-                color: $dark_text_color;
-                background-color: $dark_background_color;
-                border: 1px solid $dark_text_color;
-
-                &:active {
-                    box-shadow: none;
-                }
-
-                &.active-filter {
-                    box-shadow: none;
-                }
-            }
-        }
-
         #cork-board {
             .quote {
                 background-color: $dark_content_color;

@@ -1,16 +1,14 @@
 {{ define "main" }}
-<div class="{{ .Params.categories }}">
-   <div id="tag-selector">
-      {{- $data := sort .Site.Data.media "year" "desc" -}}
-      {{ $years := (slice) }}
-      {{- range sort .Site.Data.media "year" "desc" -}}
-      {{ $years = $years | append .year }}
-      {{- end }}
-      {{ $years := uniq $years | sort }}
-      {{- range $years }}
-      <button class="tag-button" id="tag-{{ . }}" data-filter=".year-{{ . }}">{{ . }}</button>
-      {{ end }}
-   </div>
+<div id="tag-selector">
+   {{- $data := sort .Site.Data.media "year" "desc" -}}
+   {{ $years := (slice) }}
+   {{- range sort .Site.Data.media "year" "desc" -}}
+   {{ $years = $years | append .year }}
+   {{- end }}
+   {{ $years := uniq $years | sort }}
+   {{- range $years }}
+   <button class="tag-button" id="tag-{{ . }}" data-filter=".year-{{ . }}">{{ . }}</button>
+   {{ end }}
 </div>
 <div id="cork-board">
    {{- $data := sort .Site.Data.media "year" "desc" -}}
