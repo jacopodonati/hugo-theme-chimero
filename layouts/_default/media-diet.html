@@ -34,24 +34,6 @@ window.addEventListener('load', function () {
          fitWidth: true
       }
    });
-
-   var filtersElem = document.querySelector('#tag-selector');
-   filtersElem.addEventListener('click', function (event) {
-      if (!matchesSelector(event.target, 'button')) {
-         return;
-      }
-      if (event.target.getAttribute('id') === 'feeling-lucky') {
-         let quotes = document.querySelectorAll('.quote');
-         let pick = Math.floor(Math.random() * quotes.length);
-         iso.hideItemElements(quotes);
-         iso.revealItemElements(quotes[pick]);
-      } else {
-         var filterValue = event.target.getAttribute('data-filter');
-         iso.arrange({
-            filter: filterValue
-         });
-      }
-   });
    
    var buttonGroups = document.querySelectorAll('#tag-selector');
    for (var i = 0, len = buttonGroups.length; i < len; i++) {
@@ -63,11 +45,16 @@ window.addEventListener('load', function () {
       buttonGroup.addEventListener('click', function (event) {
          if (!matchesSelector(event.target, 'button' )) {
             return;
-         }
-         if ((event.target.getAttribute('id')==='feeling-lucky' ) && buttonGroup.querySelector('.active-filter') !==null) {
-            buttonGroup.querySelector('.active-filter').classList.remove('active-filter');
+         } else if (event.target.classList.contains('active-filter')) {
+            iso.arrange({
+               filter: '*'
+            });
+            event.target.classList.remove('active-filter');
          } else {
-            if (buttonGroup.querySelector('.active-filter') !==null) {
+            iso.arrange({
+               filter: event.target.getAttribute('data-filter')
+            });
+            if (buttonGroup.querySelector('.active-filter') !== null) {
                buttonGroup.querySelector('.active-filter').classList.remove('active-filter');
             }
             event.target.classList.add('active-filter');
