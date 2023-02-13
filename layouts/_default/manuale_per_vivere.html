@@ -7,7 +7,6 @@
         {{ $tags = union $tags ( slice . ) }}
         {{ end }}
         {{ end }}
-        <button class="tag-button active-filter" id="tag-tutti" data-filter="*">tutti</button>
         {{ range (sort $tags) }}
         <button class="tag-button" id="tag-{{ . }}" data-filter=".{{ . }}">{{ . }}</button>
         {{ end }}
@@ -64,7 +63,7 @@
         }
     });
 
-    var filtersElem = document.querySelector('#tag-selector');
+    {{/*  var filtersElem = document.querySelector('#tag-selector');
     filtersElem.addEventListener('click', function (event) {
         if (!matchesSelector(event.target, 'button')) {
             return;
@@ -80,7 +79,7 @@
                 filter: filterValue
             });
         }
-    });
+    });  */}}
 
     var buttonGroups = document.querySelectorAll('#tag-selector');
     for (var i = 0, len = buttonGroups.length; i < len; i++) {
@@ -92,18 +91,20 @@
         buttonGroup.addEventListener('click', function (event) {
             if (!matchesSelector(event.target, 'button')) {
                 return;
-            }
-            if (
-                (event.target.getAttribute('id') === 'feeling-lucky')
-                && buttonGroup.querySelector('.active-filter') !== null
-                ) {
-                buttonGroup.querySelector('.active-filter').classList.remove('active-filter');
-            } else {
+            } else if (event.target.classList.contains('active-filter')) {
+                iso.arrange({
+                   filter: '*'
+                });
+                event.target.classList.remove('active-filter');
+             } else {
+                iso.arrange({
+                   filter: event.target.getAttribute('data-filter')
+                });
                 if (buttonGroup.querySelector('.active-filter') !== null) {
-                    buttonGroup.querySelector('.active-filter').classList.remove('active-filter');
+                   buttonGroup.querySelector('.active-filter').classList.remove('active-filter');
                 }
                 event.target.classList.add('active-filter');
-            }
+             }
         });
     }
 </script>
