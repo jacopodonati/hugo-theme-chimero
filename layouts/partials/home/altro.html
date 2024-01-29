@@ -1,14 +1,7 @@
-<section id="altro">
-    <h2>Altri progetti</h2>
-    {{ range where .Pages "Type" "other" -}}
-    <div class="split">
-        <div class="year">{{ .Date.Format "2006" }} – …</div>
-        <div class="project">
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            <div class="description">
-                {{ .Description }}
-            </div>
-        </div>
-    </div>
+<aside id="altro">
+    <ul>
+    {{ range sort (where .Pages "Type" "other") "Title" -}}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{- end }}
-</section>
+    </ul>
+</aside>

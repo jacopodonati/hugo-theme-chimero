@@ -1,7 +1,0 @@
-<aside id="altro">
-    <ul>
-    {{ range sort (where .Pages "Type" "other") "Title" -}}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-    {{- end }}
-    </ul>
-</aside>
