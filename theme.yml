@@ -1,0 +1,14 @@
+name: Chimero
+license: MIT
+licenselink: https://github.com/jacopodonati/hugo-theme-chimero/blob/master/LICENSE
+description: ""
+homepage: https://www.jacopodonati.it/
+tags:
+  - light
+  - dark
+  - minimal
+features: []
+min_version: 0.100.0
+author:
+  name: Jacopo Donati
+  homepage: https://www.jacopodonati.it/
