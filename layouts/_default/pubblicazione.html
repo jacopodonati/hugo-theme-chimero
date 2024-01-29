@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="book">
+    {{- $cover := .Resources.GetMatch "cover.jpg" -}}
+    {{- if $cover -}}
+    {{- $base_mul := 3 -}}
+    {{- $base_width := (mul $base_mul (int .Params.width)) -}}
+    {{- $base_height := (div (mul $cover.Height $base_width) $cover.Width) -}}
+    {{- $x1 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 2))) -}}
+    {{- $x2 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
+    {{- $x3 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 4))) -}}
+    {{- $x4 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 5))) }}
+    <img src="{{ $cover.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="{{ .Title }}" class="book-cover" style="width:{{ div $base_width 2 }}px;height:{{ div $base_height 2 }}px">
+    {{- end }}
+    <div class="description">
+        <h1 class="title">{{ .Title }}</h1>
+        <ul class="stores">
+        {{ range .Params.stores}}
+            <li><a href="{{ .url }}" target="_blank">{{ readFile (replace "themes/chimero/static/img/buttons/STORE.svg" "STORE" .class) | safeHTML }}</a></li>
+        {{ end }}
+        </ul>
+    </div>
+</div>
+<article>
+    {{ .Content }}
+    <p class="metadata">Il volume è uscito per {{ .Params.publisher }} nel {{ time.Format "2006" .Params.published }}. ISBN: <span class="isbn">{{ .Params.isbn }}</span></p>
+</article>
+{{ end }}
