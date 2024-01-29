@@ -1,6 +1,7 @@
 #home-header {
     align-items: center;
     display: flex;
+    font-size: 1rem;
     flex-direction: row;
     font-weight: 500;
     justify-content: space-between;
@@ -8,7 +9,6 @@
     margin-top: 4rem;
 
     .nome {
-        font-size: 1rem;
         font-weight: 500;
         margin-bottom: 0;
 
