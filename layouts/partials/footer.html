@@ -1,3 +1,3 @@
         <footer id="home-footer">
-            <p>{{ .Site.Copyright }}</p>
+            <p>aggiornato il: {{ hugo.BuildDate | time.Format ":date_medium" }} · {{ .Site.Copyright }}</p>
         </footer>
