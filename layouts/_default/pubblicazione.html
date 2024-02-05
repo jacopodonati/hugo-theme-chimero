@@ -15,7 +15,7 @@
         <h1 class="title">{{ .Title }}</h1>
         <ul class="stores">
         {{ range .Params.stores}}
-            <li><a href="{{ .url }}" target="_blank">{{ readFile (replace "themes/chimero/static/img/buttons/STORE.svg" "STORE" .class) | safeHTML }}</a></li>
+            <li><a href="{{ .url }}" target="_blank" title="{{ .label }}">{{ readFile (replace "/static/img/buttons/STORE.svg" "STORE" .class) | safeHTML }}</a></li>
         {{ end }}
         </ul>
     </div>
