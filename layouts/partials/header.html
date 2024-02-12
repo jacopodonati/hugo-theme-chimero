@@ -1,7 +1,18 @@
     <div id="home-header">
         <div class="left">
             <div class="nome">
+            {{- if .IsHome }}
+                {{ .Site.Title }}
+            {{- else }}
                 <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+            {{- end }}
+            </div>
+            <div id="roles">
+                <ul>
+                    <li>Scrittore</li>
+                    <li>Editor</li>
+                    <li>Docente</li>
+                </ul>
             </div>
             <div id="location">Bologna</div>
         </div>

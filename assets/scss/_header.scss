@@ -6,7 +6,10 @@
     font-weight: 500;
     justify-content: space-between;
     margin-bottom: 8rem;
-    margin-top: 4rem;
+
+    div {
+        margin: 2px 0
+    }
 
     .nome {
         font-weight: 500;
@@ -30,6 +33,35 @@
             border-radius: 100%;
             width: 72px;
         }
+    }
+
+    #roles {
+        color: $label_color;
+        height: 1.2em;
+        line-height: 1.2em;
+        position: relative;
+        overflow: hidden;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            animation: slide 6s infinite;
+        }
+    }
+}
+
+@keyframes slide {
+    0% {
+      top: 0;
+    }
+    25% {
+      top: -1.2em;
+    }
+    50% {
+      top: -2.4em;
     }
 }
 
