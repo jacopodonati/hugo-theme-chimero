@@ -14,7 +14,7 @@
         {{- $x2 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
         {{- $x3 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 4))) -}}
         {{- $x4 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 5))) }}
-        <a href="{{ .RelPermalink }}" target="_blank">
+        <a href="{{ .RelPermalink }}">
             <img src="{{ $cover.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="Copertina di {{ .Title }}" class="book-cover" style="width:{{ div $base_width 2 }}px;height:{{ div $base_height 2 }}px">
         </a>
         {{- end }}
