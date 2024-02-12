@@ -4,6 +4,7 @@ body {
     font-family: $base_fonts, $emoji_fonts;
     font-size: $font_size;
     line-height: 1.5;
+    margin: 3vw 0;
 }
 
 #home-header, #content > section, #home-footer {
@@ -73,27 +74,6 @@ sup {
         color: $label_color;
         font-weight: 500;
     }
-    
-    /* VECCHI STILI PER I PROGETTI A FONDO PAGINA
-    .year {
-        color: adjust-color($color: $text_color, $lightness: 40%);
-        font-size: .8rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-    }
-
-    .project {
-        h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin: 1rem 0 .4rem 0;
-        }
-
-        .description {
-            color: adjust-color($color: $text_color, $lightness: 20%);
-        }
-    }
-    VECCHI STILI PER I PROGETTI A FONDO PAGINA */
 }
 
 #altro {
@@ -108,12 +88,6 @@ sup {
             display: inline-block;
             margin: .4rem 1rem;
         }
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    html {
-        padding: 1.5rem;
     }
 }
 
