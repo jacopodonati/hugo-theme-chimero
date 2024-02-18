@@ -7,22 +7,7 @@
                 <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
             {{- end }}
             </div>
-            <div id="roles">
-                <ul>
-                    <li>Scrittore</li>
-                    <li>Editor</li>
-                    <li>Docente</li>
-                </ul>
-            </div>
-            <div id="location">Bologna</div>
-        </div>
-        <div id="photo">
-    {{- $profile_pic := resources.Get "img/chiaro-scuro.jpg" -}}
-    {{- $base_width := 72 -}}
-    {{- $x1 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 2))) -}}
-    {{- $x2 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 3))) -}}
-    {{- $x3 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 4))) -}}
-    {{- $x4 := $profile_pic.Resize (printf "x%s q80 webp" (string (mul $base_width 5))) }}
-            <img src="{{ $profile_pic }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x, {{$x4.RelPermalink}} 4x" alt="Foto di Jacopo Donati" width="{{ $base_width }}" height="{{ $base_width }}">
+            <div id="roles">{{ .Site.Params.profile.logline }}</div>
+            <div id="location">{{ .Site.Params.profile.location }}</div>
         </div>
     </div>
