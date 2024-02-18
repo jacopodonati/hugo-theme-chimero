@@ -5,7 +5,7 @@ html {
 body {
     background-color: $background_color;
     color: $text_color;
-    font-family: $base_fonts, $emoji_fonts;
+    font-family: $sans_stack;
     font-size: $font_size;
     line-height: 1.5;
     margin: 3vw 0;
@@ -96,11 +96,6 @@ sup {
 }
 
 @media only screen and (max-width: 500px) {
-    p {
-        text-align: justify;
-        hyphens: auto;
-        -webkit-hyphens: auto;
-    }
 
     footer p {
         text-align: center;
