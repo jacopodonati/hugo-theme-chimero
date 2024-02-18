@@ -1,13 +1,13 @@
-    <div id="home-header">
-        <div class="left">
-            <div class="nome">
-            {{- if .IsHome }}
-                {{ .Site.Title }}
-            {{- else }}
-                <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-            {{- end }}
-            </div>
-            <div id="roles">{{ .Site.Params.profile.logline }}</div>
-            <div id="location">{{ .Site.Params.profile.location }}</div>
+    <div id="page-header">
+        {{- if .IsHome }}
+        <div class="nome">
+            {{ .Site.Title }}
         </div>
+        <div id="roles">{{ .Site.Params.profile.logline }}</div>
+        <div id="location">{{ .Site.Params.profile.location }}</div>
+        {{- else -}}
+        <div class="nome small">
+            <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        </div>
+        {{- end }}
     </div>

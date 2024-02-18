@@ -1,11 +1,12 @@
-#home-header {
-    align-items: center;
-    display: flex;
+#page-header {
+    // align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
     font-size: 1rem;
-    flex-direction: row;
     font-weight: 500;
-    justify-content: space-between;
-    margin-bottom: 7.5rem;
+    margin: 0 auto 7.5rem auto;
+    max-width: $max_width;
 
     .nome {
         font-weight: 500;
@@ -13,6 +14,10 @@
 
         a {
             text-decoration: none;
+        }
+
+        &.small {
+            font-size: .9rem;
         }
     }
 
@@ -62,7 +67,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    #home-header {
+    #page-header {
+        h1 a:visited {
+            color: $dark_link;
+        }
+
         #location {
             color: $dark_label_color;
         }
@@ -74,7 +83,7 @@
 }
 
 @media (grid) and (monochrome) {
-    #home-header {
+    #page-header {
         #photo {
             display: none;
         }
