@@ -39,6 +39,17 @@
         h2 {
             font-size: .9rem;
         }
+
+        &:target {
+            background-color: scale-color($background_color, $saturation: 60%, $lightness: -30%);
+            border-radius: 4px;
+            padding: .6rem 1.6rem;
+
+
+            .label {
+                color: scale-color($label_color, $lightness: 80%)
+            }   
+        }
     }
 }
 
@@ -54,4 +65,11 @@
             }
         }
     }
+}
+
+@media (prefers-color-scheme: dark)  {
+    .home #contatti:target {
+        background-color: scale-color($dark_background_color, $lightness: 14%);
+    }
+    
 }
