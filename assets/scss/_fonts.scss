@@ -17,14 +17,43 @@
 }
 
 @font-face {
-    font-family: "Crimson Pro";
-    src: url("/fonts/cp-reg.woff2") format('woff2');
+    font-family: "Roboto";
+    src:
+        local("Roboto"),
+        url("/fonts/roboto.woff2") format('woff2');
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Crimson Pro";
-    src: url("/fonts/cp-ita.woff2") format('woff2');
+    font-family: "Roboto Serif";
+    src: 
+        local("Roboto Serif"),
+        url("/fonts/ros-reg.woff2") format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto Serif";
+    src: 
+        local("Roboto Serif"),
+        url("/fonts/ros-ita.woff2") format('woff2');
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: 
+        local("Roboto Mono"),
+        url("/fonts/rom-reg.woff2") format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: 
+        local("Roboto Mono"),
+        url("/fonts/rom-ita.woff2") format('woff2');
     font-style: italic;
     font-display: swap;
 }
