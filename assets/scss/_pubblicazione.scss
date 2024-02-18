@@ -1,59 +1,81 @@
 .pubblicazioni {
-    .book {
-        display: flex;
-        margin: 0 auto 4rem auto;
+    article {
+        font-family: $serif_fonts;
         max-width: $max_width;
-        justify-content: space-around;
-        align-items: stretch;
-        
-        .book-cover {
-            width: 14rem;
-            border-radius: 2px;
-            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-            width: 8rem;
-        }
+        margin: 0 auto;
 
-        .description {
+        .book {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-            margin: 1rem;
-            font-family: $serif_fonts;
+            margin: 0 auto 4rem auto;
+            max-width: $max_width;
+            justify-content: space-around;
+            align-items: stretch;
             
-            .title {
-                font-size: 2rem;
-                font-weight: 460;
-                margin-bottom: 0;
+            .book-cover {
+                width: 14rem;
+                border-radius: 2px;
+                box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+                width: 8rem;
             }
 
-            .stores {
+            .description {
                 display: flex;
-                padding: 0;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: center;
+                margin: 1rem;
+                font-family: $serif_fonts;
+                padding: 0 1rem;
+                
+                .title {
+                    line-height: 1.1;
+                    font-size: 2rem;
+                    font-weight: 460;
+                    margin-bottom: 0;
+                }
 
-                li {
-                    list-style: none;
+                .stores {
+                    display: flex;
+                    padding: 0;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    align-items: center;
 
-                    svg {
-                        height: 2rem;
-                        margin: .6rem;
+                    li {
+                        list-style: none;
+
+                        svg {
+                            height: 2rem;
+                            margin: .6rem;
+                        }
                     }
                 }
             }
         }
-    }
 
-    article {
+
+        p {
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
         .metadata {
             margin-top: 4rem;
-            font-size: .8rem;
+            font-size: .9rem;
 
             .isbn {
                 font-family: $mono_fonts;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .pubblicazioni article {
+        .book {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
         }
     }
 }
