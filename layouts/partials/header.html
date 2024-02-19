@@ -3,11 +3,12 @@
         <div class="nome">
             {{ .Site.Title }}
         </div>
-        <div id="roles">{{ .Site.Params.profile.logline }}</div>
+        <div id="logline">{{ .Site.Params.profile.logline }}</div>
         <div id="location">{{ .Site.Params.profile.location }}</div>
         {{- else -}}
         <div class="nome small">
             <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+            <span id="logline">· {{ .Site.Params.profile.logline }}</span>
         </div>
         {{- end }}
     </div>
