@@ -1,24 +1,7 @@
-.home {
-
-    .book-cover {
-        border-radius: 2px;
-        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-        width: 8rem;
-    }
-
-    #book-shelf {
-        align-items: flex-end;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        column-gap: .4rem;
-        row-gap: 2rem;
-    
-        .description {
-            font-size: .8rem;
-            text-align: center;
-        }
+.home {    
+    #home-header, #home-footer, section {
+        max-width: $max_width;
+        margin: 4rem auto;
     }
 
     section {
@@ -27,10 +10,30 @@
             font-weight: 500;
         }
     }
+    
+    #pubblicazioni {
+        max-width: fit-content;
 
-    p {
-        font-family: $serif_fonts;
-        line-height: 1.7;
+        .book-cover {
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+            width: 8rem;
+        }
+        
+        #book-shelf {
+            align-items: flex-end;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            column-gap: 10vw;
+            row-gap: 2rem;
+            
+            .description {
+                font-size: .8rem;
+                text-align: center;
+            }
+        }
     }
 
     #contatti {
@@ -38,6 +41,18 @@
 
         h2 {
             font-size: .9rem;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: clamp(8em, 20vw, 9em) 1fr;
+            align-items: baseline;
+            margin-bottom: .8em;
+            
+            .label {
+                color: $label_color;
+                font-weight: 500;
+            }
         }
 
         &:target {
@@ -51,7 +66,28 @@
             }   
         }
     }
+
+    #altro {
+        text-align: center;
+        font-size: .8rem;
+    
+        ul {
+            padding: 0;
+            display: inline;
+    
+            li {
+                display: inline-block;
+                margin: .4rem 1rem;
+            }
+        }
+    }
+    
+    #home-footer {
+        margin-top: 8rem;
+    }
 }
+
+
 
 @media only screen and (max-width: 450px) {
     #pubblicazioni {
@@ -68,8 +104,17 @@
 }
 
 @media (prefers-color-scheme: dark)  {
-    .home #contatti:target {
-        background-color: scale-color($dark_background_color, $lightness: 14%);
+    .home {
+        #contatti:target {
+            background-color: scale-color($dark_background_color, $lightness: 14%);
+        }
+        
+    
+        .split {
+            .label {
+                color: $dark_label_color;
+            }
+        }
     }
     
 }
