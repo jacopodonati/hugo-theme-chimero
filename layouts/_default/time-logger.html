@@ -1,0 +1,101 @@
+{{- define "head_script" }}
+    <script src="/js/chart.umd.js"></script>
+{{- end }}
+
+{{ define "main" }}
+<h2>{{ .Title }}</h2>
+{{ $data_path := "data.csv" }}
+{{ with .Resources.Get $data_path }}
+    {{ with (.Content | transform.Unmarshal (dict "delimiter" ";")) }}
+        {{ $data := . }}
+        {{ $activities := slice }}
+        {{ $lines := (after 1 $data) | collections.Reverse }}
+        {{ range $lines }}
+            {{ range $index, $cell := . }}
+            {{ if eq $index 5 }}
+                {{ $activities = $activities | append . }}
+            {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ $activities := $activities | uniq }}
+    <!-- <div id="chart-container">
+        <canvas id="chart"></canvas>
+    </div> -->
+    <div id="table-container">
+        <table>
+            <thead>
+                <tr>
+                {{ range $index, $cell := (index $data 0) }}
+                {{ if not (eq $index 6) }}
+                    <th>{{ . }}</th>
+                {{ end }}
+                {{ end }}
+                </tr>
+                <tr id="filter-bar">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>
+                        <select id="activity-selector">
+                            <option value="*">any</option>
+
+                            {{ range $activities }}
+                            <option value="{{ replace . " " "_" }}">{{ . }}</option>
+                            {{ end }}
+                        </select>
+                    </th>
+                </tr>
+            </thead>
+            {{ range $lines }}
+            <tr class="record">
+                {{ range $index, $cell := . }}
+                {{ if eq $index 0 }}
+                <td data-year="{{ substr . 6 4 }}" data-month="{{ substr . 3 2 }}" data-day="{{ substr . 0 2 }}">{{ . }}</td>
+                {{ else if eq $index 4 }}
+                <td data-hours="{{ substr . 0 2 }}">{{ . }}</td>
+                {{ else if eq $index 5 }}
+                <td data-category="{{ replace . " " "_" }}">{{ . }}</td>
+                {{ else if eq $index 6 }}
+                {{ else }}
+                <td>{{ . }}</td>
+                {{ end }}
+                {{ end }}
+            </tr>
+            {{ end }}
+        </table>
+    </div>
+    {{ end }}
+{{ else }}
+    {{ errorf "Unable to find resource %q" $data_path }}
+{{ end }}
+{{ end }}
+
+{{ define "script"}}
+<script>
+    var selector = document.querySelector('#activity-selector');
+    selector.addEventListener('change', event => {
+        console.log(event.target.value)
+        if (event.target.value == "*") {
+            const trs = document.querySelectorAll('.record');
+            trs.forEach((row) => {
+                row.style.display = 'table-row'
+            });
+        } else {
+            const trs = document.querySelectorAll('.record');
+            trs.forEach((row) => {
+                const trs = document.querySelectorAll('.record');
+                trs.forEach((row) => {
+                    row.style.display = 'none'
+                });
+                const target = document.querySelectorAll('[data-category=' + event.target.value + ']')
+                target.forEach((row) => {
+                    row.closest('.record').style.display = 'table-row'
+                });
+            });
+
+        }
+    });
+</script>
+{{ end }}

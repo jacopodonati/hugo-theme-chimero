@@ -2,11 +2,11 @@
 <html lang="{{ .Language }}">
     <head>
 {{ partial "head.html" . }}
-{{ block "head_script" . }}{{ end }}
+{{- block "head_script" . }}{{ end }}
     </head>
     <body>
         {{- partial "header.html" . }}
-        <main id="content" class="{{ .Section }} {{ .Kind }}">
+        <main id="content" class="{{ .Section }} {{ .Kind }} {{ .Params.layout }}">
             {{- block "main" . }}{{- end }}
         </main>
 {{ partial "footer.html" . }}
