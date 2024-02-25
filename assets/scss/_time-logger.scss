@@ -19,9 +19,14 @@
             thead {
                 background-color: adjust-color($color: $background_color, $lightness: -40%);
                 color: $button_text;
+                position: sticky;
 
-                tr:hover {
-                    background-color: adjust-color($color: $background_color, $lightness: -40%);;
+                tr {
+                    position: sticky;
+                    
+                    &:hover {
+                        background-color: adjust-color($color: $background_color, $lightness: -40%);
+                    }
                 }
 
                 th {

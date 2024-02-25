@@ -18,9 +18,9 @@
             {{ end }}
         {{ end }}
         {{ $activities := $activities | uniq }}
-    <!-- <div id="chart-container">
-        <canvas id="chart"></canvas>
-    </div> -->
+    <div id="chart-container">
+        <canvas id="time-chart"></canvas>
+    </div>
     <div id="table-container">
         <table>
             <thead>
@@ -42,7 +42,7 @@
                             <option value="*">any</option>
 
                             {{ range $activities }}
-                            <option value="{{ replace . " " "_" }}">{{ . }}</option>
+                            <option value="{{ . }}">{{ . }}</option>
                             {{ end }}
                         </select>
                     </th>
@@ -56,7 +56,7 @@
                 {{ else if eq $index 4 }}
                 <td data-hours="{{ substr . 0 2 }}">{{ . }}</td>
                 {{ else if eq $index 5 }}
-                <td data-category="{{ replace . " " "_" }}">{{ . }}</td>
+                <td data-category="{{ . }}">{{ . }}</td>
                 {{ else if eq $index 6 }}
                 {{ else }}
                 <td>{{ . }}</td>
@@ -72,30 +72,176 @@
 {{ end }}
 {{ end }}
 
+
 {{ define "script"}}
+{{ $data_path := "data.csv" }}
+{{ with .Resources.Get $data_path }}
+    {{ with (.Content | transform.Unmarshal (dict "delimiter" ";")) }}
 <script>
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function getDatasetIndexByLabel(chart, label) {
+    var datasets = chart.data.datasets;
+    for (var i = 0; i < datasets.length; i++) {
+        if (datasets[i].label === label) {
+            return i;
+        }
+    }
+    return null;
+}
+
+function showAllDatasets(chart) {
+    var datasets = chart.data.datasets;
+    for (var i = 0; i < datasets.length; i++) {
+        chart.getDatasetMeta(i).hidden = false;
+    }
+    chart.update();
+}
+
+function hideAllDatasetsExceptOne(chart, datasetToKeepIndex) {
+    showAllDatasets(chart)
+    var datasets = chart.data.datasets;
+    for (var i = 0; i < datasets.length; i++) {
+        if (i !== datasetToKeepIndex) {
+            chart.getDatasetMeta(i).hidden = true;
+        }
+    }
+    chart.update();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     var selector = document.querySelector('#activity-selector');
     selector.addEventListener('change', event => {
-        console.log(event.target.value)
         if (event.target.value == "*") {
             const trs = document.querySelectorAll('.record');
             trs.forEach((row) => {
                 row.style.display = 'table-row'
             });
+            showAllDatasets(myChart);
         } else {
             const trs = document.querySelectorAll('.record');
             trs.forEach((row) => {
-                const trs = document.querySelectorAll('.record');
-                trs.forEach((row) => {
-                    row.style.display = 'none'
-                });
-                const target = document.querySelectorAll('[data-category=' + event.target.value + ']')
-                target.forEach((row) => {
-                    row.closest('.record').style.display = 'table-row'
-                });
+                row.style.display = 'none';
             });
-
+            const target = document.querySelectorAll('[data-category="' + event.target.value + '"]')
+            target.forEach((row) => {
+                row.closest('.record').style.display = 'table-row'
+            });
+            let datasetID = getDatasetIndexByLabel(myChart, event.target.value);
+            hideAllDatasetsExceptOne(myChart, datasetID);
         }
     });
+    // Dati del CSV
+    var data = [
+    {{- $data := . }}
+        {{- $lines := (after 1 $data) }}
+        {{- range $lines }}
+            {{- $day := "" }}
+            {{- $length := "" }}
+            {{- $activity := "" }}
+            {{- range $index, $cell := . }}
+                {{- if eq $index 0 }}
+                    {{- $day = . }}
+                {{- else if eq $index 4 }}
+                    {{ $hours := index (split . ":") 0 }}
+                    {{ $hours_wo_zero := cond (eq (substr $hours 0 1) "0") (substr $hours 1) $hours }}
+                    {{ $hours := $hours_wo_zero | int }}
+                    {{ $minutes := index (split . ":") 1}}
+                    {{ $minutes_wo_zero := cond (eq (substr $minutes 0 1) "0") (substr $minutes 1) $minutes }}
+                    {{ $minutes := $minutes_wo_zero | int }}
+                    {{ $totalMinutes := (mul $hours 60) | add $minutes }}
+                    {{- $length = (mul $hours 60) | add $minutes }}
+                {{- else if eq $index 5 }}
+                    {{- $activity = . }}
+                {{- end }}
+            {{- end }}
+            {{- $line := (dict "day" $day "length" $length "activity" $activity ) }}
+            {{- $line | jsonify (dict "noHTMLEscape" true ) | safeJS }},
+        {{- end }}
+    ];
+
+    // Raggruppa i dati per giorno e attività
+    var groupedData = {};
+    data.forEach(function (entry) {
+        if (!groupedData[entry.day]) {
+            groupedData[entry.day] = {};
+        }
+        if (!groupedData[entry.day][entry.activity]) {
+            groupedData[entry.day][entry.activity] = 0;
+        }
+        groupedData[entry.day][entry.activity] += entry.length;
+    });
+
+    // Prepara i dati per Chart.js
+    var labels = Object.keys(groupedData);
+    var datasets = [];
+    var activities = Object.keys(data.reduce(function (acc, cur) {
+        acc[cur.activity] = true;
+        return acc;
+    }, {}));
+    activities.forEach(function (activity) {
+        var data = labels.map(function (day) {
+            return groupedData[day][activity] || 0;
+        });
+        datasets.push({
+            label: activity,
+            data: data,
+            backgroundColor: getRandomColor(),
+        });
+    });
+
+    // Configurazione del grafico
+    var config = {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: datasets,
+        },
+        options: {
+            scales: {
+                x: {
+                    stacked: true,
+                    barThickness: 50
+                },
+                y: {
+                    stacked: true,
+                    ticks: {
+                        callback: function(value, index, values) {
+                            var hours = Math.floor(value / 60);
+                            var minutes = value % 60;
+                            return hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0');
+                        }
+                    }
+                },
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            var value = context.parsed.y;
+                            var hours = Math.floor(value / 60);
+                            var minutes = value % 60;
+                            return hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ' (' + value + ' min)';
+                        }
+                    }
+                }
+            }
+        },
+    };
+
+    var ctx = document.getElementById('time-chart').getContext('2d');
+    var myChart = new Chart(ctx, config);
+});
+    
 </script>
+
+{{ end }}
+{{ end }}
 {{ end }}
