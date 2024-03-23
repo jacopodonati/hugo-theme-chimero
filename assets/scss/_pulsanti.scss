@@ -22,12 +22,12 @@
     }
 }
 
-.pendragon {
+.el, .pendragon {
     fill: #000000;
 }
 
 @media (prefers-color-scheme: dark) {    
-    .amazon .scritta, .ibsit .ibs, .lafeltrinelli, .pendragon {
+    .amazon .scritta, .ibsit .ibs, .lafeltrinelli, .pendragon, .el {
         fill: $dark_text_color;
     }
 }
