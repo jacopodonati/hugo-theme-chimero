@@ -1,6 +1,6 @@
 <section id="pubblicazioni">
     {{ with .Site.GetPage "/pubblicazioni" }}
-    {{ $books := where .Pages "Params.show" true }}
+    {{ $books := where .Pages "Params.homepage" true }}
     {{ if gt (len $books) 0 }}
     <div id="book-shelf">
         {{ range $books }}
