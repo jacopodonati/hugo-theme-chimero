@@ -1,6 +1,6 @@
 .pubblicazioni {
     article {
-        font-family: $serif_fonts;
+        font-family: $body_fonts;
         max-width: $max_width;
         margin: 0 auto;
 
@@ -40,7 +40,7 @@
         justify-content: space-between;
         text-align: center;
         margin: 1rem;
-        font-family: $serif_fonts;
+        font-family: $body_fonts;
         padding: 0 1rem;
         
         .title {

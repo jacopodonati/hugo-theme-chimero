@@ -4,6 +4,8 @@ $emoji_stack: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $mono_fonts: "SF Mono", "Roboto Mono", monospace;
 $sans_fonts: $sans_stack, $emoji_stack;
 $serif_fonts: $serif_stack, $emoji_stack;
+$header_fonts: $sans_fonts;
+$body_fonts: $sans_fonts;
 
 $max_width: 38rem;
 $font_size: 18px;
