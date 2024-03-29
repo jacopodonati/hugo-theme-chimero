@@ -50,6 +50,14 @@ sup {
     display: none;
 }
 
+.right {
+    float: right;
+}
+
+.small {
+    font-size: .8rem;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: $dark_background_color;
